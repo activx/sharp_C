@@ -13,22 +13,22 @@ namespace zanyatie3
             Console.Write("Введите количество чисел в массиве: ");
             int size = int.Parse(Console.ReadLine());
 
-            int[] Array = new int[size];
+            int[] array = new int[size];
             for (int i = 0; i < size; i++)
             {
                 Console.Write("Введите число " + (i + 1) + ": ");
-                Array[i] = int.Parse(Console.ReadLine());
+                array[i] = int.Parse(Console.ReadLine());
 
             }
 
-            quicksort(Array, 0, size - 1);
+            QuickSort(array, 0, size - 1);
             // Отпечатаем массив
-            for (int i = 0; i < size; i++) Console.WriteLine("Элемент " + (i) + ":" + Array[i]);
+            for (int i = 0; i < size; i++) Console.WriteLine("Элемент " + (i) + ":" + array[i]);
         }
         /**
          * Делитель массива на части
          **/
-        static int partition(int[] array, int start, int end)
+        static int Partition(int[] array, int start, int end)
         {
             int marker = start;
             for (int i = start; i <= end; i++)
@@ -51,7 +51,7 @@ namespace zanyatie3
         /// <param name="array">Массив для перебора</param>
         /// <param name="start">Начальный элемент сортировки </param>
         /// <param name="end">Конечный элемент сортировки</param>
-        static void quicksort(int[] array, int start, int end)
+        static void QuickSort(int[] array, int start, int end)
         {
 
             if (start >= end)
@@ -59,9 +59,9 @@ namespace zanyatie3
                 return;
             }
 
-            int marker = partition(array, start, end); // Делим массив на части
-            quicksort(array, start, marker - 1); // Сортируем до маркера
-            quicksort(array, marker + 1, end); // Сортируем после маркера
+            int marker = Partition(array, start, end); // Делим массив на части
+            QuickSort(array, start, marker - 1); // Сортируем до маркера
+            QuickSort(array, marker + 1, end); // Сортируем после маркера
         }
     }
 }
